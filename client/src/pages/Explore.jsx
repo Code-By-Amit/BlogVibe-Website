@@ -45,6 +45,16 @@ export const Explore = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [hasNextPage, loading])
 
+
+  if(loading){
+    return (
+      <div className='w-full h-cover flex justify-center items-center'>
+        <div className="loader"></div>
+      </div>
+    ) 
+  }
+
+
   return (
     <>
       <div className='m-5 text-center py-11'>

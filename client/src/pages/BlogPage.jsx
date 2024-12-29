@@ -85,10 +85,17 @@ export const BlogPage = () => {
 
 
   if (loading) {
-    return <div>Loading.............</div>
+    return (
+      <div className='w-full h-cover flex justify-center items-center'>
+        <div className="loader"></div>
+      </div>
+    )
   }
+
   if (error) {
-    return <div>Something Went Wrong.........</div>
+    return <div className='w-full h-cover flex justify-center items-center'>
+        <div className='text-xl text-slate-700 font-bold'>Something Went Wrong.........</div>
+      </div>
   }
 
   return (

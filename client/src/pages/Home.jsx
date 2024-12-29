@@ -27,22 +27,22 @@ export const Home = () => {
 
   if (loading) {
     return (
-      <>
-        <div>Loading........</div>
-      </>
+      <div className='w-full h-cover flex justify-center items-center'>
+        <div className="loader"></div>
+      </div>
     )
   }
   let RandomHeroPage = allBlog[Math.floor(Math.random() * allBlog.length)]
   console.log(allBlog)
   return (
     <>
-    {
-      RandomHeroPage && 
-      <HeroSection postImg={RandomHeroPage.blogImg}
-        tag={RandomHeroPage.tags[0]}
-        title={RandomHeroPage.title}
-        discription={RandomHeroPage.content.substring(0,RandomHeroPage.content.indexOf('.')+1)} />
-    }
+      {
+        RandomHeroPage &&
+        <HeroSection postImg={RandomHeroPage.blogImg}
+          tag={RandomHeroPage.tags[0]}
+          title={RandomHeroPage.title}
+          discription={RandomHeroPage.content.substring(0, RandomHeroPage.content.indexOf('.') + 1)} />
+      }
 
       <div className=" m-4 px-10 py-4 ">
         <h1 className='text-3xl font-semibold my-3 mb-8'> Recent Blog's</h1>
@@ -57,7 +57,7 @@ export const Home = () => {
         <div className='mx-auto my-10 border'></div>
         <div className='text-center p-4 m-4 flex justify-center items-center' >
           <Link to='/explore'>
-          <button className='outline-none border bg-black text-white font-bold py-3 px-4 gap-3 flex justify-center items-center rounded-md'> <Telescope color='white' size={30}/> Explore More.....</button>
+            <button className='outline-none border bg-black text-white font-bold py-3 px-4 gap-3 flex justify-center items-center rounded-md'> <Telescope color='white' size={30} /> Explore More.....</button>
           </Link>
         </div>
       </div>
