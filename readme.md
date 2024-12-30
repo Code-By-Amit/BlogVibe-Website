@@ -27,7 +27,7 @@ BlogVibe provides a seamless experience for both writers and readers, making it 
 
 ### Frontend:
 - **React.js**: For building dynamic user interfaces.
-- **Tailwind CSS**: For beautiful, responsive styling.
+- **Tailwind CSS**: For beautiful styling.
 - **Axios**: For handling HTTP requests.
 - **React Router Dom**: For navigating between pages.
 
