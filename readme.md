@@ -6,7 +6,7 @@ BlogVibe provides a seamless experience for both writers and readers, making it 
 
 ## Features
 
-### 1. **User Authentication** 🔐
+### 1. **User Authentication** 🔐 
 - Secure Signup/Login with **JWT-based authentication**.
 - **Google OAuth** based Signup/Login.
 - **Username/password** based authentication.
