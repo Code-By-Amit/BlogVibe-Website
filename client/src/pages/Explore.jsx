@@ -19,7 +19,9 @@ export const Explore = () => {
       }
 
       if (newData.length === 0 || newData.length < 5) {
+        console.log('i am here')
         setHasNextPage(false)
+        setLoading(false)
       }
       console.log('Fetching page:', page);
       console.log('New data:', newData);
@@ -46,13 +48,7 @@ export const Explore = () => {
   }, [hasNextPage, loading])
 
 
-  if(loading){
-    return (
-      <div className='w-full h-cover flex justify-center items-center'>
-        <div className="loader"></div>
-      </div>
-    ) 
-  }
+console.log(hasNextPage)
 
 
   return (
@@ -76,7 +72,14 @@ export const Explore = () => {
             </ul>
           })
         }
+        {loading && <div className='w-full flex justify-center mb-9 pb-4 items-center'>
+                        <div className="loader"></div>
+                   </div> }
       </div>
+      {!hasNextPage && <div className='w-full text-3xl font-bold flex justify-center mb-9 pb-4 items-center'>
+                           No more Blogs
+                      </div>
+       }
     </>
   )
 }

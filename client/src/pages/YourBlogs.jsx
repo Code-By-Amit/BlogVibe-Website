@@ -48,7 +48,11 @@ export const YourBlogs = () => {
     };
 
     if (loading) {
-        return <div>Loading....</div>
+        return (
+            <div className='w-full h-cover flex justify-center items-center'>
+                <div className="loader"></div>
+            </div>
+        )
     }
     return (
         <div className="flex flex-col justify-center items-center p-4 h-cover bg-slate-100">
@@ -60,7 +64,7 @@ export const YourBlogs = () => {
                             return <li key={blog._id}> <UserBlog blog={blog} handleDelete={handleDelete} /></li>
                         })
                     }
-                    {yourBlog.length==0 && <h1>You haven't published the blog yet.</h1>}
+                    {yourBlog.length == 0 && <h1>You haven't published the blog yet.</h1>}
                 </ul>
             </div>
         </div>

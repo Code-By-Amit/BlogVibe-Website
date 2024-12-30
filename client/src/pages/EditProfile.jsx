@@ -5,7 +5,6 @@ import { updateUserData } from '../api/api';
 
 export const EditProfile = () => {
   const { user, setUser } = useAuth()
-  const [loading, setLoading] = useState(false);
   const [previewImg, setPreviewImg] = useState(null)
 
   const [profile, setProfile] = useState({
@@ -60,7 +59,7 @@ export const EditProfile = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    
 
     try {
 
@@ -192,53 +191,3 @@ export const EditProfile = () => {
     </>
   )
 }
-
-
-//   const responsePromise = updateUserData(profile);
-
-//   toast.promise(
-//     responsePromise
-//       .then((data) => {
-//         if (data?.data?.success) {
-//           setUser({
-//             fullName: data?.data?.fullName || '',
-//             email: data?.data?.email || '',
-//             bio: data?.data?.bio || '',
-//             profileImg: data?.data?.profileImg || '',
-//             username: data?.data?.username || '',
-//           });
-
-//           toast.success(data?.data?.message || 'Profile updated successfully!', {
-//             style: toastStyle,
-//           });
-
-//           return 'Profile updated successfully!';
-//         } else {
-//           const errorMessage = data?.data?.message || 'An error occurred.';
-//           toast.error(errorMessage, { style: toastStyle });
-//           // throw new Error(errorMessage);
-//         }
-//       })
-//       .catch((err) => {
-//         console.error("Catch Error",err);
-//         const errorMessage = err.message || 'Error while updating profile.';
-//         toast.error(errorMessage, { style: toastStyle });
-//         throw err;
-//       }),
-//     {
-//       pending: 'Updating profile...',
-//       // error: 'Error while updating profile.',
-//     },
-//     { style: toastStyle }
-//   );
-
-
-// const response = await responsePromise; // Await the promise
-
-// if (response.data.success) {
-//   toast.success(response.data.message, { style: toastStyle })
-//   URL.revokeObjectURL(previewImg);
-//   setPreviewImg(null);
-// } else if (response.data.success === false) {
-//   toast.error(response.data.message, { style: toastStyle })
-// }

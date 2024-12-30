@@ -6,14 +6,28 @@ import { SearchedBlogCard } from '../components/UI/SearchedBlogCard'
 export const SearchPage = () => {
     const { search } = useParams()
     const [searchedBlog, setSearchedBlog] = useState([])
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false)
     const navigate = useNavigate()
 
     const fetchSearchedBlog = async () => {
+        setLoading(true)
         try {
             const res = await getBlogBySearch(search)
-            setSearchedBlog(res.data.data)
+            if (res.data.success) {
+                setSearchedBlog(res.data.data)
+                setLoading(false)
+                setError(false)
+            }
+            else if (res.data.success == false) {
+                setLoading(false)
+                setError(true)
+            }
         } catch (error) {
             console.log(error)
+
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -21,6 +35,18 @@ export const SearchPage = () => {
         fetchSearchedBlog()
     }, [search])
 
+    if (loading) {
+        return (
+            <div className='w-full h-cover flex justify-center items-center'>
+                <div className="loader"></div>
+            </div>
+        )
+    }
+    if (error) {
+        return <div className='w-full h-cover flex justify-center items-center'>
+            <div className='text-xl text-slate-700 font-bold'>Something Went Wrong.........</div>
+        </div>
+    }
     return (
         <div className='w-full flex flex-col justify-center items-center' >
 
