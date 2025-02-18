@@ -1,4 +1,3 @@
-import { updateUserData } from "../../client/src/api/api.js";
 import USER from "../model/user.model.js";
 import bcrypt from 'bcrypt'
 
